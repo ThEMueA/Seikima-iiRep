@@ -27,17 +27,17 @@ namespace Seikima_ii.Controllers
         }
         public IActionResult MainPage(int id)
         {
-            return View();
+            return View(id);
         }
 
        public IActionResult Shop(int id)
         {
-            return View();
+            return View(id);
         }
 
         public IActionResult bag(int id)
         {
-            return View();
+            return View(id);
         }
     }
 }

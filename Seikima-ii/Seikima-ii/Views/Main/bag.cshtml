@@ -1,4 +1,5 @@
-﻿@*
+﻿@model int;
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -139,30 +140,5 @@
         <button class="purchase-all-btn" onclick="purchaseAllItems()">Purchase All Items</button>
     </div>
 
-    <script>
-        function removeItem(itemId) {
-            // Remove the item element from the DOM
-            const item = document.getElementById(itemId);
-            item.remove();
-        }
-
-        function purchaseAllItems() {
-            // Gather all remaining items
-            const items = document.querySelectorAll('.item');
-            let itemList = '';
-
-            items.forEach(item => {
-                const itemName = item.querySelector('h3').textContent;
-                const itemPrice = item.querySelector('.price').textContent;
-                itemList += `${itemName}: ${itemPrice}\n`;
-            });
-
-            if (itemList) {
-                alert("You are purchasing the following items:\n\n" + itemList);
-            } else {
-                alert("Your cart is empty.");
-            }
-        }
-    </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿
+﻿@model int;
 @{
     ViewData["Title"] = "MainPage";
 }
@@ -38,6 +38,8 @@
             .slide img {
                 width: calc(100% / 3 - 10px);
                 height: auto;
+                height: 2000px;
+                width:  1000px;
                 flex-shrink: 0;
                 border-radius: 5px;
             }
@@ -69,27 +71,62 @@
     </style>
 </head>
 <body>
+    <div class="slide">
+        <div style="text-align: center;">
+            <audio controls autoplay muted>
+                <source src="~/js/El Do Ra Do.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
     <div class="slider-container">
         <div class="slider" id="slider">
 
-            <div class="slide">
+          @* <div class="slide">
                 <div style="text-align: center;">
-                    <img src="~/js/2.png" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-                    <p style="margin-top: 10px; font-size: 16px; color: #333;">This is the text below the image.</p>
+                    <audio controls autoplay muted>
+                        <source src="~/js/El Do Ra Do.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
             </div>
+            *@
+
 
             <div class="slide">
                 <div style="text-align: center;">
                     <img src="~/js/4.jpg" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-                    <p style="margin-top: 10px; font-size: 16px; color: #333;">The END of the century</p>
+                    <p style="margin-top: 10px; font-size: 16px; color: #333;">The END of the century </p>
                 </div>
             </div>
 
-
             <div class="slide">
                 <div style="text-align: center;">
-                   <a  asp-action="Shop" > <img src="~/js/3.png" style="max-width: 100%; height: auto; display: block; margin: 0 auto;"> </a>
+                    <img src="~/js/5.jpg" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                    <p style="margin-top: 10px; font-size: 16px; color: #333;">Stainless Night (未完成ver.)</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div style="text-align: center;">
+                    <img src="~/js/6.jpg" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                    <p style="margin-top: 10px; font-size: 16px; color: #333;">The WORST</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div style="text-align: center;">
+                    <img src="~/js/7.jpg" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                    <p style="margin-top: 10px; font-size: 16px; color: #333;">1999 Secret Object</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div style="text-align: center;">
+                    <img src="~/js/8.jpg" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                    <p style="margin-top: 10px; font-size: 16px; color: #333;">Seikima</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div style="text-align: center;">
+                    <a asp-action="Shop" asp-route-id="@Model"> <img src="~/js/3.png" style="max-width: 100%; height: auto; display: block; margin: 0 auto;"> </a>
                     <p style="margin-top: 10px; font-size: 16px; color: #333;">Buy Goods</p>
                 </div>
             </div>
