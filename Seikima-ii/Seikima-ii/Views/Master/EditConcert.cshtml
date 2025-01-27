@@ -1,0 +1,37 @@
+﻿@model Seikima_ii.Models.Concert
+@{
+    ViewData["Title"] = "EditConcert";
+}
+
+<h1>EditConcert</h1>
+<div class="Edit-card">
+
+    <form asp-action="EditConcert" method="post">
+
+
+        <div class="form-group">
+            <label for="username">Name</label>
+            <input type="text" d="e" iname="e" asp-for="Name"  required>
+        </div>
+        <div class="form-group">
+            <label for="password">Code-Външен ключ</label>
+            <input type="text" d="e" iname="e" asp-for="CountryCode"  required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="fname">Date</label>
+            <input type="datetime" d="e" iname="e" asp-for="Date" required>
+        </div>
+        <div class="form-group">
+            <label for="lname">Program</label>
+            <input type="text" d="e" iname="e" asp-for="Program" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="lname">Image</label>
+            <input type="text" d="e" iname="e" asp-for="ImgPath" required>
+        </div>
+        <br>
+
+        <button type="submit" class="login-button">Save changes</button>
+    </form>

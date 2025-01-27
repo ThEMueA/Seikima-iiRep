@@ -1,0 +1,168 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .item-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+
+        .item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+
+            .item img {
+                width: 100%;
+                border-radius: 8px;
+            }
+
+            .item:hover {
+                transform: scale(1.05);
+            }
+
+            .item h3 {
+                margin: 15px 0;
+            }
+
+        .price {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+            .btn:hover {
+                background-color: #c82333;
+            }
+
+        /* Purchase all button */
+        .purchase-all-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 30px;
+            display: block;
+            width: 250px;
+            margin: 30px auto;
+        }
+
+            .purchase-all-btn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Item List</h1>
+
+        <div class="item-list" id="itemList">
+            <!-- Item 1 -->
+            <div class="item" id="item1">
+                <img src="https://via.placeholder.com/250x200" alt="Item 1">
+                <h3>Item 1</h3>
+                <div class="price">$19.99</div>
+                <button class="btn" onclick="removeItem('item1')">Remove Item</button>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="item" id="item2">
+                <img src="https://via.placeholder.com/250x200" alt="Item 2">
+                <h3>Item 2</h3>
+                <div class="price">$29.99</div>
+                <button class="btn" onclick="removeItem('item2')">Remove Item</button>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="item" id="item3">
+                <img src="https://via.placeholder.com/250x200" alt="Item 3">
+                <h3>Item 3</h3>
+                <div class="price">$39.99</div>
+                <button class="btn" onclick="removeItem('item3')">Remove Item</button>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="item" id="item4">
+                <img src="https://via.placeholder.com/250x200" alt="Item 4">
+                <h3>Item 4</h3>
+                <div class="price">$49.99</div>
+                <button class="btn" onclick="removeItem('item4')">Remove Item</button>
+            </div>
+        </div>
+
+        <!-- Purchase All Button -->
+        <button class="purchase-all-btn" onclick="purchaseAllItems()">Purchase All Items</button>
+    </div>
+
+    <script>
+        function removeItem(itemId) {
+            // Remove the item element from the DOM
+            const item = document.getElementById(itemId);
+            item.remove();
+        }
+
+        function purchaseAllItems() {
+            // Gather all remaining items
+            const items = document.querySelectorAll('.item');
+            let itemList = '';
+
+            items.forEach(item => {
+                const itemName = item.querySelector('h3').textContent;
+                const itemPrice = item.querySelector('.price').textContent;
+                itemList += `${itemName}: ${itemPrice}\n`;
+            });
+
+            if (itemList) {
+                alert("You are purchasing the following items:\n\n" + itemList);
+            } else {
+                alert("Your cart is empty.");
+            }
+        }
+    </script>
+</body>
+</html>

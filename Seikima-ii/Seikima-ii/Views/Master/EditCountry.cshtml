@@ -1,0 +1,33 @@
+﻿@model Seikima_ii.Models.Country
+@{
+    ViewData["Title"] = "EditCountry";
+}
+
+<h1>EditCountry</h1>
+<div class="Edit-card">
+
+    <form asp-action="EditCountry" method="post">
+
+
+        <div class="form-group">
+            <label for="username">CountryName</label>
+            <input type="text" d="e" iname="e" asp-for="CountryName"  required>
+        </div>
+        <div class="form-group">
+            <label for="password">Code-Първичен ключ не се променя</label>
+            <input type="text"  asp-for="CountryCode"  required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="fname">Describtion</label>
+            <input type="text" d="e" iname="e" asp-for="CountryDescription" required>
+        </div>
+        <div class="form-group">
+            <label for="lname">TimeZone</label>
+            <input type="text" d="e" iname="e" asp-for="TimeZone" required>
+        </div>
+        <br>
+ 
+        <button type="submit" class="login-button">Save changes</button>
+    </form>
+

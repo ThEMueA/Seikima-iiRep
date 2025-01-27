@@ -1,0 +1,32 @@
+﻿@model  Seikima_ii.Models.GoodDeal
+@{
+    ViewData["Title"] = "EditDeal";
+}
+
+<h1>EditDeal</h1>
+<div class="Edit-card">
+
+    <form asp-action="EditDeal" method="post">
+
+
+        <div class="form-group">
+            <label for="username">Itemname</label>
+            <input type="text" d="e" iname="e" asp-for="ItemName" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Description</label>
+            <input type="text" d="e" iname="e" asp-for="Description" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="fname">price</label>
+            <input type="number" d="e" iname="e" asp-for="Price" required>
+        </div>
+        <div class="form-group">
+            <label for="lname">img</label>
+            <input type="text" d="e" iname="e" asp-for="ItemImgPath" required>
+        </div>
+        <br>
+        <button type="submit" class="login-button">Save changes</button>
+    </form>
+

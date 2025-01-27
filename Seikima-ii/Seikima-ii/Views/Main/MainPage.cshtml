@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewData["Title"] = "MainPage";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Picture Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 90%;
+            margin: auto;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            display: flex;
+            gap: 10px;
+        }
+
+            .slide img {
+                width: calc(100% / 3 - 10px);
+                height: auto;
+                flex-shrink: 0;
+                border-radius: 5px;
+            }
+
+        .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+            .button.left {
+                left: 10px;
+            }
+
+            .button.right {
+                right: 10px;
+            }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider" id="slider">
+
+            <div class="slide">
+                <div style="text-align: center;">
+                    <img src="~/js/2.png" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                    <p style="margin-top: 10px; font-size: 16px; color: #333;">This is the text below the image.</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div style="text-align: center;">
+                    <img src="~/js/4.jpg" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                    <p style="margin-top: 10px; font-size: 16px; color: #333;">The END of the century</p>
+                </div>
+            </div>
+
+
+            <div class="slide">
+                <div style="text-align: center;">
+                   <a  asp-action="Shop" > <img src="~/js/3.png" style="max-width: 100%; height: auto; display: block; margin: 0 auto;"> </a>
+                    <p style="margin-top: 10px; font-size: 16px; color: #333;">Buy Goods</p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <button class="button left" onclick="moveLeft()">&#8249;</button>
+        <button class="button right" onclick="moveRight()">&#8250;</button>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+        let index = 0;
+
+        function moveLeft() {
+            if (index > 0) {
+                index--;
+                updateSlider();
+            }
+        }
+
+        function moveRight() {
+            if (index < totalSlides - 1) {
+                index++;
+                updateSlider();
+            }
+        }
+
+        function updateSlider() {
+            const width = slider.children[0].clientWidth;
+            slider.style.transform = `translateX(-${index * width}px)`;
+        }
+
+        window.addEventListener('resize', updateSlider);
+    </script>
+</body>

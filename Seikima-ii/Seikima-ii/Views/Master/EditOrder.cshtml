@@ -1,0 +1,32 @@
+﻿@model Seikima_ii.Models.Order
+@{
+    ViewData["Title"] = "EditOrder";
+}
+
+<h1>EditOrder</h1>
+<div class="Edit-card">
+
+    <form asp-action="EditOrder" method="post">
+
+
+        <div class="form-group">
+            <label for="username">UserID</label>
+            <input type="text" d="e" iname="e" asp-for="UserId" required>
+        </div>
+        <div class="form-group">
+            <label for="password">ItemID</label>
+            <input type="text" d="e" iname="e" asp-for="ItemId" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="fname">Date</label>
+            <input type="datetime" d="e" iname="e" asp-for="OrderDate" required>
+        </div>
+        <div class="form-group">
+            <label for="lname">Quantity</label>
+            <input type="number" d="e" iname="e" asp-for="Quantity" required>
+        </div>
+        <br>
+        <button type="submit" class="login-button">Save changes</button>
+    </form>
+

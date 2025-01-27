@@ -1,0 +1,183 @@
+﻿
+@model Seikima_ii.Controllers.golqmadanna
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "CRUD";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List with New Button</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        }
+
+        .container {
+        max-width: 600px;
+        margin-left: 50px;
+        padding: 20px;
+        }
+
+        h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        }
+
+        .item-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        }
+
+        .item {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        text-align: center;
+        }
+
+        .item h3 {
+        margin: 0;
+        font-size: 1.5em;
+        }
+
+        .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9em;
+        margin: 5px;
+        }
+
+        .btn:hover {
+        background-color: #0056b3;
+        }
+
+        .delete-btn {
+        background-color: #dc3545;
+        }
+
+        .delete-btn:hover {
+        background-color: #c82333;
+        }
+
+        /* New Button */
+        .new-btn {
+        background-color: #28a745;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        display: block;
+        margin: 20px auto;
+        }
+
+        .new-btn:hover {
+        background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>C.R.U.D :3</h1>
+
+
+        <h2> users</h2>
+       <a asp-action="CreateUser"> <button class="new-btn">New</button></a>
+
+        <div class="item-list" id="itemList">
+            
+          
+          
+            
+            <div class="item" id="item1">
+                
+                    @foreach(var user in Model.users) {
+                          <h3>@user.Username</h3>
+
+                    <a asp-action="EditUser" asp-route-id="@user.Id" ><button class="btn">Edit</button></a>
+                    <a asp-action="DeleteUser" asp-route-id="@user.Id" > <button class="btn delete-btn">Delete</button></a>
+                    }
+                </div>
+
+  <br />
+            <br />
+            <h2> GoodDeals</h2>
+            <a asp-action="CreateDeal"> <button class="new-btn">New</button></a>
+                <div class="item" id="item1">
+
+                    @foreach (var user in Model.goodDeal)
+                    {
+                        <h3>@user.ItemName</h3>
+                    <a asp-action="EditDeal" asp-route-id="@user.Id"><button class="btn">Edit</button></a>
+                    <a asp-action="DeleteDeal" asp-route-id="@user.Id"> <button class="btn delete-btn">Delete</button></a>
+                    }
+                </div>
+
+                <br />
+                <br />
+            <h2> Countries</h2>
+            <a asp-action="CreateCountry"> <button class="new-btn">New</button></a>
+                <div class="item" id="item1">
+
+                    @foreach (var user in Model.country)
+                    {
+                        <h3>@user.CountryName</h3>
+                    <a asp-action="EditCountry" asp-route-id="@user.CountryCode"><button class="btn">Edit</button></a>
+                    <a asp-action="DeleteCountry" asp-route-id="@user.CountryCode"> <button class="btn delete-btn">Delete</button></a>
+                    }
+                </div>
+
+                <br />
+                <br />
+            <h2> Concerts</h2>
+            <a asp-action="CreateConcert"> <button class="new-btn">New</button></a>
+                <div class="item" id="item1">
+
+                    @foreach (var user in Model.concert)
+                    {
+                        <h3>@user.Name</h3>
+                    <a asp-action="EditConcert" asp-route-id="@user.ConcertId"><button class="btn">Edit</button></a>
+                    <a asp-action="DeleteConcert" asp-route-id="@user.ConcertId"> <button class="btn delete-btn">Delete</button></a>
+                    }
+                </div>
+
+            <h2> Orders</h2>
+            <a asp-action="CreateOrder"> <button class="new-btn">New</button></a>
+            <div class="item" id="item1">
+
+                @foreach (var user in Model.order)
+                {
+                    <h3>User- @user.User.Username   Item-@user.Item.ItemName   Id-@user.OrderId </h3>
+                    <a asp-action="EditOrder" asp-route-id="@user.OrderId"><button class="btn">Edit</button></a>
+                    <a asp-action="DeleteOrder" asp-route-id="@user.OrderId"> <button class="btn delete-btn">Delete</button></a>
+                }
+            </div>
+
+
+                <br />
+                <br />
+
+
+
+
+
+
+            
+        
+
+          
+
+</body>

@@ -1,0 +1,36 @@
+﻿@model Seikima_ii.Models.User;
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+<div class="Register-card">
+
+    <form asp-action="Register" method="post">
+
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" d="e" iname="e" asp-for="Username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password" asp-for="Password" placeholder="Enter your password" required>
+     </div>
+
+        <div class="form-group">
+            <label for="fname">First name</label>
+           <input type="text" d="e" iname="e" asp-for="Fname" required>
+        </div>
+        <div class="form-group">
+            <label for="lname">Last name</label>
+             <input type="text" d="e" iname="e" asp-for="Fname" required>
+        </div>
+
+
+     
+   
+        <button type="submit" class="login-button">Register</button>
+    </form>
+</div>
+
