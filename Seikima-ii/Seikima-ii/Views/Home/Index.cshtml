@@ -2,6 +2,10 @@
  @{   ViewData["Title"] = "Home Page";
 }
 
+
+
+
+
 <div class="login-card">
     <h2>Login</h2>
     <form asp-action="Index" method="post"> 
@@ -9,10 +13,12 @@
             <label for="username">Username</label>
             <input type="text" d="e" iname="e" asp-for="Username" placeholder="Enter your email" required>
         </div>
+        <br />
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Password-</label>
             <input type="text" id="password" name="password" asp-for="Password" placeholder="Enter your password" required>
         </div>
+        <br />
         <button type="submit" class="login-button">Login/Register</button>
     </form>
 </div>

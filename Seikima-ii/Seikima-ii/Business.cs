@@ -64,7 +64,7 @@ namespace Seikima_ii
         {
             List<User> users = new List<User>();
             users = db.Users.ToList();
-            //users.RemoveAt(0); //This removes the CEO from the list
+            //users.RemoveAt(0); //This removes the new User
             return users;
         }
         #endregion
